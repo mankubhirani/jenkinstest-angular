@@ -36,16 +36,7 @@ pipeline {
             }
         }
 
-        stage('Deploy to Server') {
-            steps {
-                sshagent(['your-ssh-credentials']) {
-                    sh '''
-                        scp -r dist/angular-app/* user@your-server:/var/www/html/angular-app
-                        ssh user@your-server "sudo systemctl restart nginx"
-                    '''
-                }
-            }
-        }
+       
     }
 
     post {
